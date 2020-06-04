@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="userList">
+        <div v-if="userList.length < 0">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
@@ -51,7 +51,7 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                window.location.href
+                                window.location.href = 'https://sme-test.herokuapp.com/'
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
