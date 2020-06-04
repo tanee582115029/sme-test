@@ -5,7 +5,6 @@
             Province: <input v-model="province"/><br/>
             <button color="success" @click="updateData">Update</button><br/>
         </div>
-        {{ name }} {{ province }} {{ userId }}
     </div>
 </template>
 
@@ -15,10 +14,11 @@ import firebase from 'firebase'
 export default {
     data: function () {
         return {
-            name: 'name emp',
-            province: 'pro emp',
+            name: '',
+            province: '',
             userList: [],
-            userId: 'userId emp'
+            userId: '',
+            info: {},
         }
     },
     head() {
@@ -57,10 +57,7 @@ export default {
                 liff.getProfile().then(profile => {
                     db.collection("user").doc(profile.userId)
                         .onSnapshot(function(doc) {
-                            this.name = doc.data()
-                            // console.log(doc.data())
-                            // this.province = doc.data().province
-                            // this.userId = doc.data().userId
+                            this.info = doc.data()
                         })
                 }).catch(err => console.log(err))
             }
