@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="userId">
+        <div v-if="userId===null">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
