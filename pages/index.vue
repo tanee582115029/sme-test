@@ -15,9 +15,9 @@
                 v-for="(user, key) in userList"
                 :key=key outlined tile
             >
-                {{'Name:'+ user.name }} <br/>
-                {{'Province:'+ user.province }} <br/>
-                {{'UserId:'+ user.userId }}<br/>
+                {{'Name:'+ user.name }} <br/><br/>
+                {{'Province:'+ user.province }} <br/><br/>
+                {{'UserId:'+ user.userId }}<br/><br/>
                 {{'TimeStamp:'+ user.timestamp }}
             </div>
         </div>
@@ -82,6 +82,8 @@ export default {
 
 <style>
 .content {
-    margin: 150px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
 }
 </style>

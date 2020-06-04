@@ -72,6 +72,8 @@ export default {
 
 <style>
 .content {
-    margin: 150px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
 }
 </style>
