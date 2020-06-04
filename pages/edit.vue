@@ -41,7 +41,8 @@ export default {
                             this.userId = doc.data().userId
                         })
                 }).catch(err => console.log(err))
-            } else {
+            }
+            else {
                 liff.login()
             }
         }, err => console.error(err.code, error.message))
