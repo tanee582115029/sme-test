@@ -60,8 +60,8 @@ export default {
                 }
             }, err => console.error(err.code, error.message))
         },
-        getData() {
-            db.collection("user")
+        async getData() {
+            await db.collection("user")
                 .onSnapshot((querySnapshot) => {
                     var data = []
                     querySnapshot.forEach((doc) => {
@@ -73,11 +73,11 @@ export default {
                 })
         },
     },
-    mounted() {
-        this.getData()
+    async mounted() {
+        await this.getData()
     },
-    created() {
-        this.getData()
+    async created() {
+        await this.getData()
     }
 }
 </script>
