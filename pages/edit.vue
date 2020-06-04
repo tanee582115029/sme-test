@@ -15,10 +15,10 @@ import firebase from 'firebase'
 export default {
     data: function () {
         return {
-            name: 'emp',
-            province: 'emp',
+            name: 'name emp',
+            province: 'pro emp',
             userList: [],
-            userId: 'emp'
+            userId: 'userId emp'
         }
     },
     head() {
@@ -37,7 +37,7 @@ export default {
                     db.collection("user").doc(profile.userId)
                         .onSnapshot(function(doc) {
                             this.name = doc.data()
-                            console.log(doc.data())
+                            // console.log(doc.data())
                             // this.province = doc.data().province
                             // this.userId = doc.data().userId
                         })
