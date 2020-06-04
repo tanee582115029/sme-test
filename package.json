@@ -1,0 +1,35 @@
+{
+  "name": "halal",
+  "version": "1.0.0",
+  "description": "Halal Charity line liff",
+  "author": "A-Value",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "ant-design-vue": "1.3.10",
+    "axios": "^0.19.2",
+    "babel-plugin-import": "^1.12.0",
+    "base-64": "^0.1.0",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "nuxt": "^2.0.0",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/style-resources": "^0.1.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^6.1.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2"
+  }
+}
