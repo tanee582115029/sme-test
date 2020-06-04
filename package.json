@@ -1,7 +1,7 @@
 {
-  "name": "halal",
+  "name": "sme",
   "version": "1.0.0",
-  "description": "Halal Charity line liff",
+  "description": "SME-test",
   "author": "A-Value",
   "private": true,
   "scripts": {
