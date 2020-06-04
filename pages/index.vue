@@ -1,23 +1,19 @@
 <template>
     <div>
-        <div v-if="!exist">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
                 <button color="success" class="mr-4" @click="addData">Submit</button><br/>
                 <a href="https://sme-test.herokuapp.com/edit" type="button">edit</a>
             </div>
-        </div>
-        <div v-else>
-            <div class="content"
-                v-for="(user, key) in userList"
-                :key=key outlined tile
-            >
-                {{'Name:'+ user.name }} <br/><br/>
-                {{'Province:'+ user.province }} <br/><br/>
-                {{'UserId:'+ user.userId }}<br/><br/>
-                {{'TimeStamp:'+ user.timestamp }}
-            </div>
+        <div class="content"
+            v-for="(user, key) in userList"
+            :key=key outlined tile
+        >
+            {{'Name:'+ user.name }} <br/><br/>
+            {{'Province:'+ user.province }} <br/><br/>
+            {{'UserId:'+ user.userId }}<br/><br/>
+            {{'TimeStamp:'+ user.timestamp }}
         </div>
     </div>
 </template>
@@ -32,7 +28,6 @@ export default {
             province: null,
             userList: [],
             userId: null,
-            exist: false
         }
     },
     methods: {
@@ -49,7 +44,6 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                this.exist= true
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
@@ -60,8 +54,8 @@ export default {
                 }
             }, err => console.error(err.code, error.message))
         },
-        async getData() {
-            await db.collection("user")
+        getData() {
+            db.collection("user")
                 .onSnapshot((querySnapshot) => {
                     var data = []
                     querySnapshot.forEach((doc) => {
@@ -69,15 +63,14 @@ export default {
                     })
                     this.userList = data
                 }).then(()=>{
-                    this.exist= true
                 })
         },
     },
-    async mounted() {
-        await this.getData()
+    mounted() {
+        this.getData()
     },
-    async created() {
-        await this.getData()
+    created() {
+        this.getData()
     }
 }
 </script>
