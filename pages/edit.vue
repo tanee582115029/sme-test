@@ -15,10 +15,10 @@ import firebase from 'firebase'
 export default {
     data: function () {
         return {
-            name: '',
-            province: '',
+            name: 'emp',
+            province: 'emp',
             userList: [],
-            userId: ''
+            userId: 'emp'
         }
     },
     head() {
@@ -36,9 +36,10 @@ export default {
                 liff.getProfile().then(profile => {
                     db.collection("user").doc(profile.userId)
                         .onSnapshot(function(doc) {
-                            this.name = doc.data().name,
-                            this.province = doc.data().province
-                            this.userId = doc.data().userId
+                            this.name = doc.data()
+                            console.log(doc.data())
+                            // this.province = doc.data().province
+                            // this.userId = doc.data().userId
                         })
                 }).catch(err => console.log(err))
             }
