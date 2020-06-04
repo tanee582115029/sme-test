@@ -1,19 +1,18 @@
-
 <template>
-<div>
-    <div class="content" @submit.prevent="addData">
-        Name: <input v-model="name" /> <br/>
-        Province: <input v-model="province" /><br/>
-        <button color="success" class="mr-4" @click="addData">Submit</button><br/>
-        {{ name }} <br/><hr/>
-        <div
-            v-for="(user, key) in userList"
-            :key=key outlined tile
-        >
-            {{ user }}
+    <div>
+        <div class="content" @submit.prevent="addData">
+            Name: <input v-model="name" /> <br/>
+            Province: <input v-model="province" /><br/>
+            <button color="success" class="mr-4" @click="addData">Submit</button><br/>
+            {{ name }} <br/><hr/>
+            <div
+                v-for="(user, key) in userList"
+                :key=key outlined tile
+            >
+                {{ user }}
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -24,13 +23,24 @@ export default {
         return {
             name: '',
             province: '',
-            userList: []
+            userList: [],
+            userId: ''
         }
     },
     methods: {
         addData() {
+            liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
+                if (liff.isLoggedIn()) {
+                    liff.getProfile().then(profile => {
+                        userId = profile.userId
+                    }).catch(err => console.log(err))
+                } else {
+                    liff.login()
+                }
+            }, err => console.error(err.code, error.message))
             const data = {
                 name: this.name,
+                userId: this.userId,
                 province: this.province,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }
@@ -41,17 +51,32 @@ export default {
                 .catch(function(error) {
                     console.error("Error writing document: ", error)
                 })
-        }
+        },
+        getData() {
+            db.collection("user")
+                .onSnapshot((querySnapshot) => {
+                    var data = []
+                    querySnapshot.forEach((doc) => {
+                        data.push(doc.data())
+                    })
+                    this.userList = data
+                })
+        },
     },
     mounted() {
-        db.collection("user")
-            .onSnapshot((querySnapshot) => {
-                var data = []
-                querySnapshot.forEach((doc) => {
-                    data.push(doc.data())
-                })
-                this.userList = data
-            })
+        liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
+            if (liff.isLoggedIn()) {
+                liff.getProfile().then(profile => {
+                    const userId = profile.userId
+
+                }).catch(err => console.log(err))
+            } else {
+                liff.login()
+            }
+        }, err => console.error(err.code, error.message))
+    },
+    created() {
+        this.getData()
     }
 }
 </script>
