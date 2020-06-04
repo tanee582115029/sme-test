@@ -40,6 +40,7 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
+                                window.location.href = 'https://sme-test.herokuapp.com/'
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)

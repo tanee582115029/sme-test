@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div v-if="userList.length < 0">
+        <div v-if="userId === ''">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
                 <button color="success" class="mr-4" @click="addData">Submit</button><br/>
-                <form method="get" action="/edit">
-                    <button type="submit">edit</button>
-                </form>
+                <a href="https://sme-test.herokuapp.com/edit" type="button">edit</a>
             </div>
         </div>
         <div v-else>
