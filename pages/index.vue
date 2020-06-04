@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="userList.length < 0">
-            <div class="content" @submit.prevent="addData">
+        <div v-if="userList">
+            <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
                 <button color="success" class="mr-4" @click="addData">Submit</button><br/>
@@ -85,5 +85,9 @@ export default {
     margin-top: 40px;
     display: flex;
     justify-content: center;
+}
+.form-text {
+    margin-top: 40px;
+    margin-left: 80px;
 }
 </style>
