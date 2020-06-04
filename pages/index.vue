@@ -32,7 +32,7 @@ export default {
             province: '',
             userList: [],
             userId: '',
-            isCreate: false
+            exist: false
         }
     },
     methods: {
@@ -49,7 +49,7 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                window.location.href = 'https://sme-test.herokuapp.com/'
+                                $nuxt.$router.replace({ path: '/' })
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)

@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="form-text" @submit.prevent="updateData">
-            Name: <input v-model="name" value="info.name"/> <br/>
-            Province: <input v-model="province" value="info.province"/><br/>
+            Name: <input v-model="name" value="name"/> <br/>
+            Province: <input v-model="province" value="province"/><br/>
             <button color="success" @click="updateData">Update</button><br/>
         </div>
         {{ name }}
@@ -40,7 +40,7 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                window.location.href = 'https://sme-test.herokuapp.com/'
+                                $nuxt.$router.replace({ path: '/' })
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
