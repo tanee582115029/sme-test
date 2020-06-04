@@ -1,10 +1,9 @@
 <template>
     <div>
         <div class="content" @submit.prevent="addData">
-            Name: <input v-model="name"/> <br/>
-            Province: <input v-model="province"/><br/>
+            Name: <input v-model="name" value="name"/> <br/>
+            Province: <input v-model="province" value="province"/><br/>
             <button color="success" @click="updateData">Update</button><br/>
-            <h1> {{ isUpdate ? 'updated': 'update fail' }} </h1>
         </div>
     </div>
 </template>

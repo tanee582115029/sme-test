@@ -13,7 +13,6 @@
                 :key=key outlined tile
             >
                 {{ user }}
-                <h1> {{ isCreate ? 'created': 'create fail' }} </h1>
             </div>
         </div>
     </div>
