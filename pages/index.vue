@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="userId === ''">
+        <div v-if="userId">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
@@ -28,10 +28,10 @@ import firebase from 'firebase'
 export default {
     data: function () {
         return {
-            name: '',
-            province: '',
+            name: null,
+            province: null,
             userList: [],
-            userId: '',
+            userId: null,
             exist: false
         }
     },
