@@ -38,7 +38,7 @@ export default {
                         .onSnapshot(function(doc) {
                             this.name = doc.data().name,
                             this.province = doc.data().province
-                            this.userId = doc.data().userId,
+                            this.userId = doc.data().userId
                         })
                 }).catch(err => console.log(err))
             } else {
