@@ -28,6 +28,27 @@ export default {
     },
     methods: {
         updateData() {
+            liff.init({ liffId: "1654304970-L4lnxxxl" }, () => {
+                if (liff.isLoggedIn()) {
+                    liff.getProfile().then(profile => {
+                        const data = {
+                            name: this.name,
+                            userId: profile.userId,
+                            province: this.province,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        }
+                        db.collection("user").doc(profile.userId).set(data)
+                            .then(function() {
+                                console.log("Document successfully written!")
+                            })
+                            .catch(function(error) {
+                                console.error("Error writing document: ", error)
+                            })
+                    }).catch(err => console.log(err))
+                } else {
+                    liff.login()
+                }
+            }, err => console.error(err.code, error.message))
         },
     },
     mounted() {
