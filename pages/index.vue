@@ -4,6 +4,9 @@
             Name: <input v-model="name" /> <br/>
             Province: <input v-model="province" /><br/>
             <button color="success" class="mr-4" @click="addData">Submit</button><br/>
+            <form method="get" action="/edit">
+                <button type="submit">edit</button>
+            </form>
             {{ name }} <br/><hr/>
             <div
                 v-for="(user, key) in userList"
@@ -61,18 +64,6 @@ export default {
                     this.userList = data
                 })
         },
-    },
-    mounted() {
-        liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
-            if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    const userId = profile.userId
-
-                }).catch(err => console.log(err))
-            } else {
-                liff.login()
-            }
-        }, err => console.error(err.code, error.message))
     },
     created() {
         this.getData()
