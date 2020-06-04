@@ -13,6 +13,7 @@
                 :key=key outlined tile
             >
                 {{ user }}
+                <h1> {{ isCreate ? 'created': 'create fail' }} </h1>
             </div>
         </div>
     </div>
@@ -27,7 +28,8 @@ export default {
             name: '',
             province: '',
             userList: [],
-            userId: ''
+            userId: '',
+            isCreate: false
         }
     },
     methods: {
@@ -44,9 +46,11 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
+                                isCreate = true
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
+                                isCreate = false
                             })
                     }).catch(err => console.log(err))
                 } else {

@@ -4,6 +4,7 @@
             Name: <input v-model="name"/> <br/>
             Province: <input v-model="province"/><br/>
             <button color="success" @click="updateData">Update</button><br/>
+            <h1> {{ isUpdate ? 'updated': 'update fail' }} </h1>
         </div>
     </div>
 </template>
@@ -19,6 +20,7 @@ export default {
             userList: [],
             userId: '',
             info: {},
+            isUpdate: false,
         }
     },
     head() {
@@ -40,9 +42,11 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
+                                this.isUpdate = true
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
+                                this.isUpdate = false
                             })
                     }).catch(err => console.log(err))
                 } else {
@@ -57,7 +61,8 @@ export default {
                 liff.getProfile().then(profile => {
                     db.collection("user").doc(profile.userId)
                         .onSnapshot(function(doc) {
-                            this.info = doc.data()
+                            this.name = doc.data().name
+                            this.province = doc.data().province
                         })
                 }).catch(err => console.log(err))
             }
