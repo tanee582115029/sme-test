@@ -38,7 +38,7 @@ export default {
                             province: this.province,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }
-                        db.collection("user").doc(this.name).set(data)
+                        db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
                             })
