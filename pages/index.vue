@@ -51,11 +51,10 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                isCreate = true
+                                window.location.href
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
-                                isCreate = false
                             })
                     }).catch(err => console.log(err))
                 } else {
@@ -73,6 +72,9 @@ export default {
                     this.userList = data
                 })
         },
+    },
+    mounted() {
+        this.getData()
     },
     created() {
         this.getData()
