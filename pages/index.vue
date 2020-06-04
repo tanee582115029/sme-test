@@ -1,18 +1,24 @@
 <template>
     <div>
-        <div class="content" @submit.prevent="addData">
-            Name: <input v-model="name" /> <br/>
-            Province: <input v-model="province" /><br/>
-            <button color="success" class="mr-4" @click="addData">Submit</button><br/>
-            <form method="get" action="/edit">
-                <button type="submit">edit</button>
-            </form>
-            {{ name }} <br/><hr/>
-            <div
+        <div v-if="userList.length < 0">
+            <div class="content" @submit.prevent="addData">
+                Name: <input v-model="name" /> <br/>
+                Province: <input v-model="province" /><br/>
+                <button color="success" class="mr-4" @click="addData">Submit</button><br/>
+                <form method="get" action="/edit">
+                    <button type="submit">edit</button>
+                </form>
+            </div>
+        </div>
+        <div v-else>
+            <div class="content"
                 v-for="(user, key) in userList"
                 :key=key outlined tile
             >
-                {{ user }}
+                {{'Name:'+ user.name }} <br/>
+                {{'Province:'+ user.province }} <br/>
+                {{'UserId:'+ user.userId }}<br/>
+                {{'TimeStamp:'+ user.timestamp }}
             </div>
         </div>
     </div>
@@ -75,4 +81,7 @@ export default {
 </script>
 
 <style>
+.content {
+    margin: 150px;
+}
 </style>
