@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="userId===null">
+        <div v-if="!exist">
             <div class="form-text" @submit.prevent="addData">
                 Name: <input v-model="name" /> <br/>
                 Province: <input v-model="province" /><br/>
@@ -49,7 +49,7 @@ export default {
                         db.collection("user").doc(profile.userId).set(data)
                             .then(function() {
                                 console.log("Document successfully written!")
-                                $nuxt.$router.replace({ path: '/' })
+                                this.exist= true
                             })
                             .catch(function(error) {
                                 console.error("Error writing document: ", error)
@@ -68,6 +68,8 @@ export default {
                         data.push(doc.data())
                     })
                     this.userList = data
+                }).then(()=>{
+                    this.exist= true
                 })
         },
     },
