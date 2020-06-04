@@ -32,10 +32,9 @@ export default {
             liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                        const userId = profile.userId
                         const data = {
                             name: this.name,
-                            userId: userId,
+                            userId: profile.userId,
                             province: this.province,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         }
