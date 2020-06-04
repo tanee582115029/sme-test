@@ -32,25 +32,25 @@ export default {
             liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
                 if (liff.isLoggedIn()) {
                     liff.getProfile().then(profile => {
-                        userId = profile.userId
+                        const userId = profile.userId
+                        const data = {
+                            name: this.name,
+                            userId: userId,
+                            province: this.province,
+                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                        }
+                        db.collection("user").doc(this.name).set(data)
+                            .then(function() {
+                                console.log("Document successfully written!")
+                            })
+                            .catch(function(error) {
+                                console.error("Error writing document: ", error)
+                            })
                     }).catch(err => console.log(err))
                 } else {
                     liff.login()
                 }
             }, err => console.error(err.code, error.message))
-            const data = {
-                name: this.name,
-                userId: this.userId,
-                province: this.province,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }
-            db.collection("user").doc(this.name).set(data)
-                .then(function() {
-                    console.log("Document successfully written!")
-                })
-                .catch(function(error) {
-                    console.error("Error writing document: ", error)
-                })
         },
         getData() {
             db.collection("user")
