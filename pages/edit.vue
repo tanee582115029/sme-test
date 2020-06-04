@@ -1,10 +1,11 @@
 <template>
     <div>
         <div class="content" @submit.prevent="addData">
-            Name: <input v-model="name" value="name"/> <br/>
-            Province: <input v-model="province" value="province"/><br/>
-            <button color="success" class="mr-4" @click="updateData">Update</button><br/>
+            Name: <input v-model="name"/> <br/>
+            Province: <input v-model="province"/><br/>
+            <button color="success" @click="updateData">Update</button><br/>
         </div>
+        {{ name }} {{ province }} {{ userId }}
     </div>
 </template>
 
@@ -37,6 +38,7 @@ export default {
                         .onSnapshot(function(doc) {
                             this.name = doc.data().name,
                             this.province = doc.data().province
+                            this.userId = doc.data().userId,
                         })
                 }).catch(err => console.log(err))
             } else {
