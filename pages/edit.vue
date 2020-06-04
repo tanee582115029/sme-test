@@ -1,7 +1,6 @@
 <template>
     <div>
-        REGISTER
-        name: 
+        hi
     </div>
 </template>
 <script>
@@ -15,7 +14,7 @@ export default {
     },
     head() {
         return {
-            title: 'REGISTER',
+            title: 'EDIT',
         }
     }
 }
