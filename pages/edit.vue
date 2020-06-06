@@ -1,86 +1,34 @@
-<template>
-    <div>
-        <div class="form-text" @submit.prevent="updateData">
-            Name: <input v-model="name" value="name"/> <br/>
-            Province: <input v-model="province" value="province"/><br/>
-            <button color="success" @click="updateData">Update</button><br/>
-        </div>
-        {{ name }}
-    </div>
-</template>
-
 <script>
-import { db } from '~/firebaseConfig.js'
-import firebase from 'firebase'
+import base64 from 'base-64'
+import md5 from 'md5'
+import moment from 'moment'
 export default {
-    data: function () {
+    layout: 'mobile',
+    data() {
         return {
-            name: '',
-            province: '',
-            userList: [],
-            userId: '',
+            action: "",
+            params: "",
         }
-    },
-    head() {
-        return {
-            title: 'EDIT',
-        }
-    },
-    methods: {
-        updateData() {
-            liff.init({ liffId: "1654304970-L4lnxxxl" }, () => {
-                if (liff.isLoggedIn()) {
-                    liff.getProfile().then(profile => {
-                        const data = {
-                            name: this.name,
-                            userId: profile.userId,
-                            province: this.province,
-                            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                        }
-                        db.collection("user").doc(profile.userId).set(data)
-                            .then(function() {
-                                console.log("Document successfully written!")
-                                $nuxt.$router.replace({ path: '/' })
-                            })
-                            .catch(function(error) {
-                                console.error("Error writing document: ", error)
-                            })
-                    }).catch(err => console.log(err))
-                } else {
-                    liff.login()
-                }
-            }, err => console.error(err.code, error.message))
-        },
     },
     mounted() {
         liff.init({ liffId: "1654304970-L4lnxxxl" }, () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
-                    let info = {}
-                    db.collection("user").doc(profile.userId)
-                        .onSnapshot(function(doc) {
-                            info = doc.data()
-                        })
-                    this.name = info.name
-                    this.province = info.province
+                    window.location.href = `http://reg.advicesys.com/group/`
                 }).catch(err => console.log(err))
-            }
-            else {
+            } else {
                 liff.login()
             }
         }, err => console.error(err.code, error.message))
+    },
+    head() {
+        return {
+            title: 'หาซื้อของ',
+        }
     }
 }
 </script>
 
-<style>
-.content {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-.form-text {
-    margin-top: 40px;
-    margin-left: 80px;
-}
+<style lang="scss" scoped>
+    //
 </style>
