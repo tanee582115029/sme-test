@@ -12,10 +12,10 @@ export default {
     },
     mounted() {
         liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
-            const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
-            const params = new URLSearchParams(queryString)
-            this.params = params
-            this.action = params.get('action')
+            // const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
+            // const params = new URLSearchParams(queryString)
+            // this.params = params
+            // this.action = params.get('action')
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     // const today = moment().format('YYYY MM DD')
