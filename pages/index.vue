@@ -18,11 +18,11 @@ export default {
             // this.action = params.get('action')
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
-                    // const today = moment().format('YYYY MM DD')
-                    // const encode = base64.encode(md5(today+"A578RT"))
-                    // const userId = profile.userId
-                    // window.location.href = `https://backend.halalhero.co/register/?line=${userId}&key=${encode}`
-                    window.location.href = `https://www.google.com/`
+                    const today = moment().format('YYYY MM DD')
+                    const encode = base64.encode(md5(today+"A578RT"))
+                    const userId = profile.userId
+                    window.location.href = `http://reg.advicesys.com/register/?line=${userId}&key=${encode}`
+                    // window.location.href = `https://www.google.com/`
                 }).catch(err => console.log(err))
             } else {
                 liff.login()
