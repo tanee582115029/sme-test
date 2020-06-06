@@ -11,7 +11,7 @@ export default {
         }
     },
     mounted() {
-        liff.init({ liffId: "1654304970-y8m7gggm" }, () => {
+        liff.init({ liffId: "1654312520-GlMnRVqX" }, () => {
             // const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
             // const params = new URLSearchParams(queryString)
             // this.params = params

@@ -11,11 +11,11 @@ export default {
         }
     },
     mounted() {
-        liff.init({ liffId: "1654304970-L4lnxxxl" }, () => {
+        liff.init({ liffId: "1654312520-x4ByNM87" }, () => {
             if (liff.isLoggedIn()) {
-                liff.getProfile().then(profile => {
-                    window.location.href = `http://reg.advicesys.com/group/`
-                }).catch(err => console.log(err))
+                window.location.href = `http://reg.advicesys.com/group/`
+                // liff.getProfile().then(profile => {
+                // }).catch(err => console.log(err))
             } else {
                 liff.login()
             }
