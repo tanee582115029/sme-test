@@ -22,7 +22,7 @@ export default {
                     // const encode = base64.encode(md5(today+"A578RT"))
                     // const userId = profile.userId
                     // window.location.href = `https://backend.halalhero.co/register/?line=${userId}&key=${encode}`
-                    window.location.href = `http://reg.advicesys.com/`
+                    window.location.href = `https://www.google.com/`
                 }).catch(err => console.log(err))
             } else {
                 liff.login()
@@ -31,7 +31,7 @@ export default {
     },
     head() {
         return {
-            title: 'Register',
+            title: 'ประกาศขายสินค้า',
         }
     }
 }
