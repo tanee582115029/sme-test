@@ -11,17 +11,13 @@ export default {
         }
     },
     mounted() {
-        liff.init({ liffId: "1654312520-GlMnRVqX" }, () => {
-            // const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
-            // const params = new URLSearchParams(queryString)
-            // this.params = params
-            // this.action = params.get('action')
+        liff.init({ liffId: "1654312520-gER41Pep" }, () => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     const today = moment().format('YYYY MM DD')
                     const encode = base64.encode(md5(today+"A578RT"))
                     const userId = profile.userId
-                    window.location.href = `http://reg.advicesys.com/register/?line=${userId}&key=${encode}`
+                    window.location.href = `http://reg.advicesys.com/profile/?line=${userId}&key=${encode}`
                 }).catch(err => console.log(err))
             } else {
                 liff.login()
@@ -30,7 +26,7 @@ export default {
     },
     head() {
         return {
-            title: 'ประกาศขายสินค้า',
+            title: 'บัญชีของฉัน',
         }
     }
 }
