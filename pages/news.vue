@@ -22,7 +22,7 @@ export default {
     },
     head() {
         return {
-            title: 'ข่าว',
+            title: 'ข่าวสาร',
         }
     }
 }

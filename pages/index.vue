@@ -30,7 +30,7 @@ export default {
     },
     head() {
         return {
-            title: 'ประกาศขายสินค้า',
+            title: 'ประกาศขาย',
         }
     }
 }

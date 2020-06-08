@@ -24,7 +24,7 @@ export default {
     },
     head() {
         return {
-            title: 'หาซื้อของ',
+            title: 'ซื้อสินค้า',
         }
     }
 }

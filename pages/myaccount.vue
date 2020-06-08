@@ -26,7 +26,7 @@ export default {
     },
     head() {
         return {
-            title: 'บัญชีของฉัน',
+            title: 'บัญชีผู้ใช้',
         }
     }
 }
