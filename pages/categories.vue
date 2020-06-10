@@ -32,6 +32,8 @@ export default {
             params: "",
             title: '',
             isLoading: true,
+            userId: "",
+            encode: "",
         }
     },
     mounted() {
@@ -52,8 +54,7 @@ export default {
                     this.encode = encode
                     if (this.action === '2') {
                         this.title = 'ข้าวและผลิตภัณฑ์จากข้าว'
-                        // window.location.href = `https://community.smeconnext.com/lists/?GID=2`
-                        window.location.href = `https://community.smeconnext.com/lists/?GID=4&line=fsd`
+                        window.location.href = `https://community.smeconnext.com/lists/?GID=2`
                     }
                     else if (this.action === '3') {
                         this.title = 'ผักและผลไม้'
