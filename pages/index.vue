@@ -1,3 +1,8 @@
+<template>
+<div>
+    <a href="https://community.smeconnext.com/lists/?GID=2" >next</a>
+</div>
+</template>
 <script>
 import base64 from 'base-64'
 import md5 from 'md5'
