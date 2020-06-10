@@ -45,6 +45,11 @@ export default {
             this.action = params.get('GID')
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
+                    const today = moment().format('YYYY MM DD')
+                    const encode = base64.encode(md5(today+"A578RT"))
+                    const userId = profile.userId
+                    this.userId = userId
+                    this.encode = encode
                     if (this.action === '2') {
                         this.title = 'ข้าวและผลิตภัณฑ์จากข้าว'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=2`
