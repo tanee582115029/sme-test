@@ -63,33 +63,3 @@ export default {
     }
 }
 </script>
-<style>
-.loading-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    z-index: 2000;
-}
-.btn-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 2000;
-}
-.next-btn {
-    font-size: 16px;
-}
-</style>
