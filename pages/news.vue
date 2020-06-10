@@ -21,6 +21,10 @@ import md5 from 'md5'
 import moment from 'moment'
 import { Icon, Button } from 'ant-design-vue'
 export default {
+    components: {
+        AIcon: Icon,
+        AButton: Button
+    },
     layout: 'mobile',
     data() {
         return {
@@ -49,7 +53,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-    //
-</style>
