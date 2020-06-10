@@ -1,12 +1,22 @@
 <template>
 <div>
-    <a :href="`https://community.smeconnext.com/lists/?GID=${action}`">next</a>
+        <div v-if="isLoading">
+            <a-icon
+                type="loading"
+                style="color: #FF9D1A; fontSize: 50px;"
+                theme="outlined"
+            />
+        </div>
+        <div v-else-if="!isLoading">
+            <a :href="`https://community.smeconnext.com/lists/?GID=${action}`">next</a>
+        </div>
 </div>
 </template>
 <script>
 import base64 from 'base-64'
 import md5 from 'md5'
 import moment from 'moment'
+import { Icon } from 'ant-design-vue'
 export default {
     layout: 'mobile',
     data() {
@@ -14,9 +24,13 @@ export default {
             action: "",
             params: "",
             title: '',
+            isLoading: true,
         }
     },
     mounted() {
+        setTimeout(() => {
+            this.isLoading = false
+        }, 5000)
         liff.init({ liffId: "1654312520-GlMnRVqX" }, () => {
             const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
             const params = new URLSearchParams(queryString)
