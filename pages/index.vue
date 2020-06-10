@@ -1,6 +1,6 @@
 <template>
 <div>
-    <a href="https://community.smeconnext.com/lists/?GID=2" >next</a>
+    <a :href="`https://community.smeconnext.com/lists/?GID=${action}`">next</a>
 </div>
 </template>
 <script>
