@@ -13,7 +13,7 @@ export default {
     mounted() {
         liff.init({ liffId: "1654312520-x4ByNM87" }, () => {
             if (liff.isLoggedIn()) {
-                window.location.href = `http://reg.advicesys.com/group/`
+                window.location.href = `https://community.smeconnext.com/group/`
                 // liff.getProfile().then(profile => {
                 // }).catch(err => console.log(err))
             }

@@ -17,7 +17,7 @@ export default {
                     const today = moment().format('YYYY MM DD')
                     const encode = base64.encode(md5(today+"A578RT"))
                     const userId = profile.userId
-                    window.location.href = `http://reg.advicesys.com/profile/?line=${userId}&key=${encode}`
+                    window.location.href = `https://community.smeconnext.com/profile/?line=${userId}&key=${encode}`
                 }).catch(err => console.log(err))
             } else {
                 liff.login()
