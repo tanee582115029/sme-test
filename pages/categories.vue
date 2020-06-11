@@ -40,7 +40,7 @@ export default {
         setTimeout(() => {
             this.isLoading = false
         }, 3000)
-        liff.init({ liffId: "1654312520-NRpAak3O" }, () => {
+        liff.init({ liffId: "1654312520-eXRvWOa1" }, () => {
             const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
             const params = new URLSearchParams(queryString)
             this.params = params
@@ -50,7 +50,8 @@ export default {
                     const today = moment().format('YYYY MM DD')
                     const encode = base64.encode(md5(today+"A578RT"))
                     const userId = profile.userId
-
+                    this.userId = userId
+                    this.encode = encode
                     window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
                     // this.userId = userId
                     // this.encode = encode

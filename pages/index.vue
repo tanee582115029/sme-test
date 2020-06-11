@@ -41,6 +41,10 @@ export default {
             this.isLoading = false
         }, 3000)
         liff.init({ liffId: "1654312520-GlMnRVqX" }, () => {
+            const queryString = decodeURIComponent(window.location.search).replace("?liff.state=", "")
+            const params = new URLSearchParams(queryString)
+            this.params = params
+            this.action = params.get('GID')
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(profile => {
                     const today = moment().format('YYYY MM DD')
@@ -49,7 +53,12 @@ export default {
                     this.userId = userId
                     this.encode = encode
                     // this.title = 'ประกาศขาย'
-                    window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
+                    if (this.action !== "") {
+                        window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
+                    }
+                    else {
+                        window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
+                    }
                 }).catch(err => console.log(err))
             } else {
                 liff.login()
