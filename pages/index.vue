@@ -12,10 +12,10 @@
         </div>
         <div class="btn-wrap" v-else-if="!isLoading">
             <div v-if="action==='sellProduct'">
-                    <a-button class="next-btn" :href="`https://community.smeconnext.com/register/?line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
+                <a-button class="next-btn" :href="`https://community.smeconnext.com/register/?line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
             </div>
             <div v-else>
-                    <a-button class="next-btn" :href="`https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
+                <a-button class="next-btn" :href="`https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
             </div>
         </div>
 </div>
@@ -57,7 +57,6 @@ export default {
                     const userId = profile.userId
                     this.userId = userId
                     this.encode = encode
-                    // this.title = 'ประกาศขาย'
                     if (this.action === 'sellProduct') {
                         window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
                     }
@@ -65,7 +64,8 @@ export default {
                         window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
                     }
                 }).catch(err => console.log(err))
-            } else {
+            }
+            else {
                 liff.login()
             }
         }, err => console.error(err.code, error.message))

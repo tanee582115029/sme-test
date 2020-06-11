@@ -49,14 +49,14 @@ export default {
                     this.encode = encode
                     window.location.href = `https://community.smeconnext.com/profile/?line=${userId}&key=${encode}`
                 }).catch(err => console.log(err))
-            } else {
+            }
+            else {
                 liff.login()
             }
         }, err => console.error(err.code, error.message))
     },
     head() {
         return {
-            // title: 'บัญชีผู้ใช้',
             title: 'กำลังโหลด...',
         }
     }
