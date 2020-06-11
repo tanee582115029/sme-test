@@ -85,7 +85,8 @@ export default {
                         window.location.href = `https://community.smeconnext.com/lists/?GID=100&line=${userId}&key=${encode}`
                     }
                 }).catch(err => console.log(err))
-            } else {
+            }
+            else {
                 liff.login()
             }
         }, err => console.error(err.code, error.message))
