@@ -52,45 +52,37 @@ export default {
                     const userId = profile.userId
                     this.userId = userId
                     this.encode = encode
-                    if (this.action === '2') {
-                        this.title = 'ข้าวและผลิตภัณฑ์จากข้าว'
+                    if (this.action === '93') {
+                        this.title = 'ข้าว'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=2&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '3') {
-                        this.title = 'ผักและผลไม้'
+                    else if (this.action === '94') {
+                        this.title = 'น้ำดื่ม'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=3&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '4') {
-                        this.title = 'อาหารกระป๋องและอาหารสำเร็จรูป'
+                    else if (this.action === '95') {
+                        this.title = 'ผ้า/เสื้อผ้า'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=4&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '5') {
-                        this.title = 'สมุนไพรที่ไม่ใช่อาหาร'
+                    else if (this.action === '96') {
+                        this.title = 'ผลไม้/อาหารแปรรูป'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=5&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '6') {
-                        this.title = 'เครื่องดื่ม'
+                    else if (this.action === '97') {
+                        this.title = 'ขนมขบเคี้ยว'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=6&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '7') {
-                        this.title = 'ซอส,น้ำจิ้มและเครื่องปรุง'
+                    else if (this.action === '98') {
+                        this.title = 'ผลิตภัณฑ์เพื่อสุขภาพ'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=7&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '8') {
-                        this.title = 'เสื้อผ้า,เครื่องแต่งกายและสิ่งทอ'
+                    else if (this.action === '99') {
+                        this.title = 'ของใช้/ของตกแต่ง'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=8&line=${userId}&key=${encode}`
                     }
-                    else if (this.action === '9') {
-                        this.title = 'ขอใช้,ประดับและตกแต่ง'
-                        window.location.href = `https://community.smeconnext.com/lists/?GID=9&line=${userId}&key=${encode}`
-                    }
-                    else if (this.action === '10') {
-                        this.title = 'ขนมขบเคี้ยว'
-                        window.location.href = `https://community.smeconnext.com/lists/?GID=1&line=${userId}&key=${encode}0`
-                    }
                     else {
-                        this.title = 'สินค้าอื่นๆ'
-                        window.location.href = `https://community.smeconnext.com/lists/?GID=1&line=${userId}&key=${encode}1`
+                        this.title = 'ผลิตภัณฑ์บำรุงดิน'
+                        window.location.href = `https://community.smeconnext.com/lists/?GID=9&line=${userId}&key=${encode}`
                     }
                 }).catch(err => console.log(err))
             } else {
