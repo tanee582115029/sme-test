@@ -11,7 +11,12 @@
             />
         </div>
         <div class="btn-wrap" v-else-if="!isLoading">
-            <a-button class="next-btn" :href="`https://community.smeconnext.com/register/?line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
+            <div v-if="action==='sellProduct'">
+                    <a-button class="next-btn" :href="`https://community.smeconnext.com/register/?line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
+            </div>
+            <div v-else>
+                    <a-button class="next-btn" :href="`https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`">ดำเนินการต่อ</a-button>
+            </div>
         </div>
 </div>
 </template>
