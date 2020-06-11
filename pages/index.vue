@@ -53,11 +53,11 @@ export default {
                     this.userId = userId
                     this.encode = encode
                     // this.title = 'ประกาศขาย'
-                    if (this.action !== "") {
-                        window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
+                    if (this.action === 'sellProduct') {
+                        window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
                     }
                     else {
-                        window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
+                        window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
                     }
                 }).catch(err => console.log(err))
             } else {
