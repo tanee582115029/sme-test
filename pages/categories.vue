@@ -51,7 +51,7 @@ export default {
                     const encode = base64.encode(md5(today+"A578RT"))
                     const userId = profile.userId
 
-                    window.location.href = `https://community.smeconnext.com/lists/?GID=${action}&line=${userId}&key=${encode}`
+                    window.location.href = `https://community.smeconnext.com/lists/?GID=${this.action}&line=${userId}&key=${encode}`
                     // this.userId = userId
                     // this.encode = encode
                     // if (this.action === '93') {
