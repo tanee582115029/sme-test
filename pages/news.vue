@@ -48,7 +48,8 @@ export default {
     },
     head() {
         return {
-            title: 'ข่าวสาร',
+            // title: 'ข่าวสาร',
+            title: 'กำลังโหลด...',
         }
     }
 }

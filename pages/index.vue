@@ -48,7 +48,7 @@ export default {
                     const userId = profile.userId
                     this.userId = userId
                     this.encode = encode
-                    this.title = 'ประกาศขาย'
+                    // this.title = 'ประกาศขาย'
                     window.location.href = `https://community.smeconnext.com/register/?line=${userId}&key=${encode}`
                 }).catch(err => console.log(err))
             } else {
@@ -58,7 +58,7 @@ export default {
     },
     head() {
         return {
-            title: this.title,
+            title: 'กำลังโหลด...',
         }
     }
 }

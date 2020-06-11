@@ -56,7 +56,8 @@ export default {
     },
     head() {
         return {
-            title: 'บัญชีผู้ใช้',
+            // title: 'บัญชีผู้ใช้',
+            title: 'กำลังโหลด...',
         }
     }
 }

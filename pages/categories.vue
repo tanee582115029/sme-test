@@ -53,35 +53,35 @@ export default {
                     this.userId = userId
                     this.encode = encode
                     if (this.action === '93') {
-                        this.title = 'ข้าว'
+                        // this.title = 'ข้าว'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=93&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '94') {
-                        this.title = 'น้ำดื่ม'
+                        // this.title = 'น้ำดื่ม'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=94&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '95') {
-                        this.title = 'ผ้า/เสื้อผ้า'
+                        // this.title = 'ผ้า/เสื้อผ้า'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=95&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '96') {
-                        this.title = 'ผลไม้/อาหารแปรรูป'
+                        // this.title = 'ผลไม้/อาหารแปรรูป'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=96&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '97') {
-                        this.title = 'ขนมขบเคี้ยว'
+                        // this.title = 'ขนมขบเคี้ยว'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=97&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '98') {
-                        this.title = 'ผลิตภัณฑ์เพื่อสุขภาพ'
+                        // this.title = 'ผลิตภัณฑ์เพื่อสุขภาพ'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=98&line=${userId}&key=${encode}`
                     }
                     else if (this.action === '99') {
-                        this.title = 'ของใช้/ของตกแต่ง'
+                        // this.title = 'ของใช้/ของตกแต่ง'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=99&line=${userId}&key=${encode}`
                     }
                     else {
-                        this.title = 'ผลิตภัณฑ์บำรุงดิน'
+                        // this.title = 'ผลิตภัณฑ์บำรุงดิน'
                         window.location.href = `https://community.smeconnext.com/lists/?GID=100&line=${userId}&key=${encode}`
                     }
                 }).catch(err => console.log(err))
@@ -93,7 +93,7 @@ export default {
     },
     head() {
         return {
-            title: this.title,
+            title: 'กำลังโหลด...',
         }
     }
 }
